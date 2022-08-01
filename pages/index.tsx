@@ -4,11 +4,9 @@ import Image from "next/image";
 import fs from "fs";
 import styles from "../styles/Home.module.css";
 import { titleCase } from "../utils/string";
-
-type Post = {
-  slug: string;
-  frontmatter: { title: string; preview: string };
-};
+import Link from "next/link";
+import { Post } from "../types";
+import { getAllPostData } from "../utils/post";
 
 interface Props {
   posts: Post[];
@@ -19,10 +17,12 @@ const Home: NextPage<Props> = ({ posts }) => {
     <div className={styles.container}>
       {posts.map((post: Post) => {
         return (
-          <div key={post.slug}>
-            <h2>{post.frontmatter.title}</h2>
-            <p>{post.frontmatter.preview}</p>
-          </div>
+          <Link href={post.slug} key={post.slug}>
+            <div>
+              <h2>{post.frontmatter.title}</h2>
+              <p>{post.frontmatter.preview}</p>
+            </div>
+          </Link>
         );
       })}
     </div>
@@ -30,29 +30,8 @@ const Home: NextPage<Props> = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-  const files = fs.readdirSync("posts");
+  const posts = getAllPostData();
 
-  let filesSortedByDate = files.sort((a, b) => {
-    let aStat = fs.statSync(`${posts}/${a}`),
-      bStat = fs.statSync(`${posts}/${b}`);
-
-    return (
-      new Date(bStat.birthtime).getTime() - new Date(aStat.birthtime).getTime()
-    );
-  });
-
-  const posts = filesSortedByDate.map((filename) => {
-    const filenameNoExtension = filename.split(".")[0];
-    const slug = filenameNoExtension.replace(/ /g, "-").toLowerCase();
-    const readFile = fs.readFileSync(`posts/${filename}`, "utf8");
-    const frontmatter = {
-      preview: readFile.slice(0, 10),
-      title: titleCase(filenameNoExtension),
-    };
-    return { slug, frontmatter };
-  });
-
-  console.log(posts);
   return {
     props: {
       posts,
