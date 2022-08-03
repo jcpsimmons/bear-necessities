@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# A SIMPLE BAREBONES MARKDOWN-TO-BLOG TEMPLATE BUILT IN NEXTJS
 
-## Getting Started
+I maintain a blog now that's pretty easy but there's a bunch of steps to get from my notetaking app (Bear) to a blog post. I wondered - what if I could just shit out a markdown file, come up with a title, and just push the repo? **That is what bear-necessities does**.
 
-First, run the development server:
+Can you use it with markdown from other apps? Sure - I don't care - but I won't be, I just want to do my writing in Bear and minimal teching before I publish something - it facilitates the development of my foot-in-mouth disease.
 
-```bash
-npm run dev
-# or
-yarn dev
+## Howwwwwwwwwwww????
+
+- fork repo
+- `yarn`
+- `yarn dev` to start it locally
+- put markdown files into the `/posts` folder - give them a dash separated filename - this will be title cased, needless to say you can't have titles that intentionally have dashes.
+
+## Need images in your posts? Are you sure - could you just write a bit better instead? OK FINE
+
+Put your images wherever-the-fuck you want them (could use `/public` could use an S3 bucket, who cares, toss 'em somewhere). Use the markdown image syntax and it'll work on the page:
+
+```
+![alt text](/path/to/image.jpg)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**But Josh - what about site speed are these images optimized?** NOPE. Too much work and I don't really use a bunch of images in my post. Again, maybe you could just write better? A picture says a thousand words, but an essay is _at least_ 1000 words so that's equivalent to one image already...
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features, issues, etc.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If it's broken, open a PR, if it's a feature add, fork it, add it, and don't tell me about it.
