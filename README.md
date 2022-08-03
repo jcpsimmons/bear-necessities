@@ -1,5 +1,7 @@
 # A SIMPLE BAREBONES MARKDOWN-TO-BLOG TEMPLATE BUILT IN NEXTJS
 
+## Live Demo: [🔗https://bear-necessities.vercel.app/](https://bear-necessities.vercel.app/)
+
 I maintain a blog now that's pretty easy but there's a bunch of steps to get from my notetaking app (Bear) to a blog post. I wondered - what if I could just shit out a markdown file, come up with a title, and just push the repo? **That is what bear-necessities does**.
 
 Can you use it with markdown from other apps? Sure - I don't care - but I won't be, I just want to do my writing in Bear and minimal teching before I publish something - it facilitates the development of my foot-in-mouth disease.
