@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "makesite": "./scripts/set-things-up.sh"
   },
   "dependencies": {
     "markdown-it": "^13.0.1",
