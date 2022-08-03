@@ -6,12 +6,20 @@ I maintain a blog now that's pretty easy but there's a bunch of steps to get fro
 
 Can you use it with markdown from other apps? Sure - I don't care - but I won't be, I just want to do my writing in Bear and minimal teching before I publish something - it facilitates the development of my foot-in-mouth disease.
 
-## Howwwwwwwwwwww????
+## Run it Locally
 
 - fork repo
 - `yarn`
 - `yarn dev` to start it locally
 - put markdown files into the `/posts` folder - give them a dash separated filename - this will be title cased, needless to say you can't have titles that intentionally have dashes.
+
+## Send it.
+
+- create an account on Vercel
+- in terminal navigate to the root of the project
+- run `./scripts/set-things-up.sh`
+- follow the prompts
+- your site is now live on Vercel at the URL printed in the terminal
 
 ## Need images in your posts? Are you sure - could you just write a bit better instead? OK FINE
 
