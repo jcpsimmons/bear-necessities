@@ -19,7 +19,7 @@ Put your images wherever-the-fuck you want them (could use `/public` could use a
 ![alt text](/path/to/image.jpg)
 ```
 
-**But Josh - what about site speed are these images optimized?** NOPE. Too much work and I don't really use a bunch of images in my post. Again, maybe you could just write better? A picture says a thousand words, but an essay is _at least_ 1000 words so that's equivalent to one image already...
+**But Josh - what about site speed are these images optimized?** NOPE. Too much work and I don't really use a bunch of images in my posts. Again, maybe you could just write better? A picture says a thousand words, but an essay is _at least_ 1000 words so that's equivalent to one image already...
 
 ## Features, issues, etc.
 
