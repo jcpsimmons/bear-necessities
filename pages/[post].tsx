@@ -16,8 +16,13 @@ interface StaticProps {
 
 const Post: NextPage<Props> = ({ postData }) => {
   return (
-    <article className="prose md:prose-xl lg:prose-2xl dark:prose-invert mx-auto pt-10 px-4 prose-img:rounded-md prose-img:mx-auto prose-a:text-blue-600">
-      <h1 className="text-center pb-10">{postData.frontmatter.title}</h1>
+    <article className="prose md:prose-xl lg:prose-2xl dark:prose-invert mx-auto pt-2 px-4 prose-img:rounded-md prose-img:mx-auto prose-a:text-blue-600">
+      <div className="text-center pb-10">
+        <small className="italic text-gray-500">
+          {postData.frontmatter.date}
+        </small>
+        <h1>{postData.frontmatter.title}</h1>
+      </div>
       {postData?.content && (
         <div
           dangerouslySetInnerHTML={{ __html: md().render(postData.content) }}

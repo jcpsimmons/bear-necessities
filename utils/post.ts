@@ -1,40 +1,46 @@
 import fs from "fs";
 import { Post } from "../types";
 import { titleCase } from "title-case";
+import { format, parse } from "date-fns";
 
 export const getSinglePostData = (slug: string): Post => {
   const fileName = slug + ".md";
   const content = fs.readFileSync(`posts/${fileName}`, "utf8");
-  const formattedFilename = fileName.replace(".md", "").replace(/-/g, " ");
+  const [title, date] = getTitleAndDate(fileName);
+
   const frontmatter = {
     preview: content.slice(0, 10),
-    title: titleCase(formattedFilename),
+    title,
+    date,
   };
   return { slug, frontmatter, content };
 };
 
 export const getAllPostData = (): Post[] => {
   const files = fs.readdirSync("posts");
+  const sortedFiles = files.reverse();
 
-  let filesSortedByDate = files.sort((a, b) => {
-    let aStat = fs.statSync(`posts/${a}`),
-      bStat = fs.statSync(`posts/${b}`);
-
-    return (
-      new Date(bStat.birthtime).getTime() - new Date(aStat.birthtime).getTime()
-    );
-  });
-
-  const posts = filesSortedByDate.map((filename) => {
+  const posts = sortedFiles.map((filename) => {
     const filenameNoExtension = filename.split(".")[0];
     const slug = filenameNoExtension;
     const readFile = fs.readFileSync(`posts/${filename}`, "utf8");
+    const [title, date] = getTitleAndDate(filenameNoExtension);
     const frontmatter = {
       preview: readFile.slice(0, 10),
-      title: titleCase(filenameNoExtension.replace(/-/g, " ")),
+      title,
+      date,
     };
     return { slug, frontmatter };
   });
 
   return posts;
+};
+
+const getTitleAndDate = (rawFilename: string): string[] => {
+  const extensionStripped = rawFilename.replace(".md", "");
+  const [rawDateString, rawTitle] = extensionStripped.split("_");
+  const title = titleCase(rawTitle.replace(/-/g, " "));
+  const parsed = parse(rawDateString, "yyyyMMdd", new Date());
+  const formattedDate = format(parsed, "MMMM dd, yyyy");
+  return [title, formattedDate];
 };

@@ -10,6 +10,7 @@
     "makesite": "./scripts/set-things-up.sh"
   },
   "dependencies": {
+    "date-fns": "^2.29.1",
     "markdown-it": "^13.0.1",
     "next": "12.2.3",
     "react": "18.2.0",
