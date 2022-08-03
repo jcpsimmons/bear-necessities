@@ -16,13 +16,14 @@ interface StaticProps {
 
 const Post: NextPage<Props> = ({ postData }) => {
   return (
-    <div>
+    <article className="prose md:prose-xl lg:prose-2xl dark:prose-invert mx-auto pt-10 px-4 prose-img:rounded-md prose-img:mx-auto prose-a:text-blue-600">
+      <h1 className="text-center pb-10">{postData.frontmatter.title}</h1>
       {postData?.content && (
         <div
           dangerouslySetInnerHTML={{ __html: md().render(postData.content) }}
         />
       )}
-    </div>
+    </article>
   );
 };
 

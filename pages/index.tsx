@@ -1,9 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import fs from "fs";
-import styles from "../styles/Home.module.css";
-import { titleCase } from "../utils/string";
 import Link from "next/link";
 import { Post } from "../types";
 import { getAllPostData } from "../utils/post";
@@ -14,14 +9,13 @@ interface Props {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <div className={styles.container}>
+    <div className="prose lg:prose-xl dark:prose-invert text-center mx-auto">
       {posts.map((post: Post) => {
         return (
           <Link href={post.slug} key={post.slug}>
-            <div>
-              <h2>{post.frontmatter.title}</h2>
-              <p>{post.frontmatter.preview}</p>
-            </div>
+            <a className="no-underline hover:underline underline-offset-2">
+              <h1>{post.frontmatter.title}</h1>
+            </a>
           </Link>
         );
       })}
