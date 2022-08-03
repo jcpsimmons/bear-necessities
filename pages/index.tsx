@@ -9,7 +9,7 @@ interface Props {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <div className="prose lg:prose-xl dark:prose-invert text-center mx-auto">
+    <div className="prose lg:prose-xl dark:prose-invert text-center mx-auto px-4">
       {posts.map((post: Post) => {
         return (
           <Link href={post.slug} key={post.slug}>
