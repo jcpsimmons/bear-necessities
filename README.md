@@ -23,6 +23,7 @@ Can you use it with markdown from other apps? Sure - I don't care - but I won't 
 
 ## Add a new post
 
+- move `scripts/pre-commit` to `.git/hooks/pre-commit`
 - just change something in the `/posts` directory
 - a precommit hook will run that will yolo the app into production
 
