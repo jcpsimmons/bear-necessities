@@ -21,6 +21,11 @@ Can you use it with markdown from other apps? Sure - I don't care - but I won't 
 - follow the prompts
 - your site is now live on Vercel at the URL printed in the terminal
 
+## Add a new post
+
+- just change something in the `/posts` directory
+- a precommit hook will run that will yolo the app into production
+
 ## Need images in your posts? Are you sure - could you just write a bit better instead? OK FINE
 
 Put your images wherever-the-fuck you want them (could use `/public` could use an S3 bucket, who cares, toss 'em somewhere). Use the markdown image syntax and it'll work on the page:
